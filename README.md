@@ -164,6 +164,7 @@ A pasta `docs/` carrega a especificação completa do projeto — sentí que era
 
 - [`01_COMPILACAO_DADOS_PROJETO.md`](docs/01_COMPILACAO_DADOS_PROJETO.md) — metodologia AR PAX, texto literal das 27 perguntas do FONAR, mapeamento pergunta × critério, equipe e referências bibliográficas.
 - [`02_PLANEJAMENTO_FRONTEND.md`](docs/02_PLANEJAMENTO_FRONTEND.md) — decisões técnicas justificadas, paleta, tipografia, microcopy, UML, plano de execução.
+- [`03_HANDOFF_E_DECISOES.md`](docs/03_HANDOFF_E_DECISOES.md) — memória institucional pós-implementação: estado atual, arquitetura efetiva, bugs corrigidos com causa raiz, princípios de UX/UI aplicados (com referências), regras inegociáveis, roadmap, e guia para retomar o trabalho.
 
 ---
 
@@ -184,8 +185,8 @@ Itens fora do escopo deste MVP, mas com arquitetura preparada:
 - **Felipe Scarpelli de Andrade** — autor da metodologia AR PAX
 - **Priscila A. M. Silva**, **Flavia Bueno Pona** — coautoras do artigo
 - **Davi** — idealizador da plataforma e ponte institucional
-- **Silvano Malfatti** — arquitetura técnica de referência
-- **Codfy (eu)** — implementação deste MVP
+- **Silvano Malfatti** — professor orientador do trabalho acadêmico (propositor)
+- **Marcos Vinicius (Codfy) — eu** — desenvolvimento integral do MVP
 
 **Citação acadêmica:**
 > SCARPELLI DE ANDRADE, F.; SILVA, P. A. M.; PONA, F. B. Análise de Risco Pax e as Medidas Protetivas de Urgência: a conformação metodológica. *Revista Brasileira de Ciências Policiais*, Brasília, v. 15, n. 1, p. 17-51, jan-abr 2024.
