@@ -21,7 +21,7 @@ Future<void> mostrarAvisoHistoricoModal(BuildContext context) {
       ),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 480),
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(AppDimensoes.e24),
           child: Column(
             mainAxisSize: MainAxisSize.min,

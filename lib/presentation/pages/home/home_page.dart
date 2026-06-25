@@ -15,7 +15,10 @@ import 'package:desperte_mulher/presentation/widgets/textos/textos.dart';
 
 /// Flag em memória: garante que o AvisoHistoricoModal apareça só uma vez
 /// por sessão. Não pode ir pra localStorage (regra de sigilo da vítima).
-bool _avisoHistoricoMostradoNestaSessao = false;
+///
+/// Exposta como `@visibleForTesting` para que testes possam suprimir o
+/// modal (que abre por postFrameCallback e quebra widget tests).
+bool homePageAvisoHistoricoJaMostrado = false;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,8 +31,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    if (!_avisoHistoricoMostradoNestaSessao) {
-      _avisoHistoricoMostradoNestaSessao = true;
+    if (!homePageAvisoHistoricoJaMostrado) {
+      homePageAvisoHistoricoJaMostrado = true;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         mostrarAvisoHistoricoModal(context);
