@@ -107,5 +107,10 @@ firebase_options.dart
 *.tmp
 *.orig
 
+# ── Originais não-otimizados de assets (ficam fora do bundle) ────────
+**/*.original.png
+**/*.original.jpg
+**/*.original.jpeg
+
 # ── Artefatos do próprio Claude Code ─────────────────────────────────
 .claude/
