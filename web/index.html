@@ -32,16 +32,28 @@
   <link rel="manifest" href="manifest.json">
 
   <!--
-    Configura o Flutter Web para usar o renderer HTML em vez de CanvasKit.
-    Motivo: HTML renderer permite DOM real (acessibilidade WCAG funciona,
-    leitores de tela enxergam, VLibras pode ser plugado, Google indexa).
-    CanvasKit desenha tudo num <canvas> e quebraria esses recursos.
+    NOTA TÉCNICA — RENDERER DO FLUTTER WEB
+    ──────────────────────────────────────
+    O planejamento original (docs/02_PLANEJAMENTO_FRONTEND.md §2.2) pedia
+    o "HTML renderer" para permitir DOM real (acessibilidade WCAG completa,
+    VLibras pluggável, SEO indexável).
+
+    Em Flutter 3.27+ o HTML renderer foi DESCONTINUADO. A partir desta
+    versão só CanvasKit (`<canvas>`) e Skwasm estão disponíveis. A flag
+    `--web-renderer` foi removida do CLI e `window.flutterConfiguration`
+    virou ilegal (gera assertion `_usedLegacyConfigStyle` e tela branca
+    no boot — bug que vimos em produção, corrigido aqui).
+
+    Trade-offs que isso impõe ao MVP:
+      - SEO: páginas não são indexáveis (texto é pixel no canvas)
+      - VLibras: só funciona se carregado via JS por fora; precisa testar
+      - Screen readers: Flutter já gera um overlay semântico — suficiente
+        para a maioria dos casos, mas inferior ao DOM nativo
+
+    Para reativar acessibilidade, basta NÃO mexer aqui — o Flutter já
+    instancia o SemanticsBinding por padrão e o overlay semântico do
+    CanvasKit já é WCAG-compatível para a maioria dos leitores.
   -->
-  <script>
-    window.flutterConfiguration = {
-      renderer: "html"
-    };
-  </script>
 
   <!--
     Slot preparado para VLibras (NÃO ATIVAR no MVP — sem aval do Davi/Silvano).
