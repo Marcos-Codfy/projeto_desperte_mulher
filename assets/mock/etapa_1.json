@@ -1,0 +1,83 @@
+{
+  "etapa": 1,
+  "totalEtapas": 5,
+  "titulo": "Sobre o histórico",
+  "subtitulo": "Vamos começar entendendo o que você já viveu. Cada pergunta é uma escolha sua — você responde no seu tempo.",
+  "perguntas": [
+    {
+      "id": "P1",
+      "numero": "1",
+      "texto": "O(A) agressor(a) já ameaçou você ou algum familiar com a finalidade de atingi-la?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim, utilizando arma de fogo" },
+        { "texto": "Sim, utilizando faca" },
+        { "texto": "Sim, de outra forma" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P2",
+      "numero": "2",
+      "texto": "O(A) agressor(a) já praticou alguma(s) dessas agressões físicas contra você?",
+      "textoApoio": "Você pode marcar mais de uma. Responda no seu tempo, sem julgamento.",
+      "modo": "multipla",
+      "criteriosAlimentados": ["exposicao", "casuistica", "historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Queimadura" },
+        { "texto": "Enforcamento" },
+        { "texto": "Sufocamento" },
+        { "texto": "Estrangulamento" },
+        { "texto": "Tiro" },
+        { "texto": "Afogamento" },
+        { "texto": "Facada" },
+        { "texto": "Paulada" },
+        { "texto": "Soco" },
+        { "texto": "Chute" },
+        { "texto": "Tapa" },
+        { "texto": "Empurrão" },
+        { "texto": "Puxão de Cabelo" },
+        { "texto": "Outra", "requerInputAdicional": true },
+        { "texto": "Nenhuma agressão física", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P3",
+      "numero": "3",
+      "texto": "Você necessitou de atendimento médico e/ou internação após algumas dessas agressões?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim, atendimento médico" },
+        { "texto": "Sim, internação" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P4",
+      "numero": "4",
+      "texto": "O(A) agressor(a) já obrigou você a ter relações sexuais ou praticar atos sexuais contra a sua vontade?",
+      "textoApoio": "Sabemos que esta é uma pergunta difícil. Você responde no seu tempo, sem julgamento.",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "historico"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P5",
+      "numero": "5",
+      "texto": "O(A) agressor(a) persegue você, demonstra ciúme excessivo, tenta controlar sua vida e as coisas que você faz? (aonde você vai, com quem conversa, o tipo de roupa que usa etc.)",
+      "modo": "unica",
+      "criteriosAlimentados": ["motivacao", "historico"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    }
+  ]
+}

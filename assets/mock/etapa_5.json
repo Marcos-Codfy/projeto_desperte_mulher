@@ -1,0 +1,80 @@
+{
+  "etapa": 5,
+  "totalEtapas": 5,
+  "titulo": "Para terminar",
+  "subtitulo": "Faltam poucas perguntas. Você está indo bem — obrigada pela coragem de chegar até aqui.",
+  "perguntas": [
+    {
+      "id": "P22",
+      "numero": "22",
+      "texto": "Você possui alguma deficiência ou doença degenerativa que acarretam condição limitante ou de vulnerabilidade física ou mental?",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P23",
+      "numero": "23",
+      "texto": "Com qual cor/raça você se identifica:",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade"],
+      "opcoes": [
+        { "texto": "Branca" },
+        { "texto": "Preta" },
+        { "texto": "Parda" },
+        { "texto": "Amarela/oriental" },
+        { "texto": "Indígena" }
+      ]
+    },
+    {
+      "id": "P24",
+      "numero": "24",
+      "texto": "Você considera que mora em bairro, comunidade, área rural ou local de risco de violência?",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade", "exposicao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P25",
+      "numero": "25",
+      "texto": "Qual sua situação de moradia?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao"],
+      "opcoes": [
+        { "texto": "Própria", "ehNegativa": true },
+        { "texto": "Alugada", "ehNegativa": true },
+        { "texto": "Cedida ou \"de favor\"" }
+      ]
+    },
+    {
+      "id": "P26",
+      "numero": "26",
+      "texto": "Você se considera dependente financeiramente do(a) agressor(a)?",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade", "exposicao", "motivacao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P27",
+      "numero": "27",
+      "texto": "Você quer e aceita abrigamento temporário?",
+      "textoApoio": "Sua resposta aqui não muda sua avaliação — é uma informação para a rede de apoio caso você queira acolhimento depois.",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    }
+  ]
+}

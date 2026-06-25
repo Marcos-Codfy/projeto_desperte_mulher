@@ -1,0 +1,87 @@
+{
+  "etapa": 3,
+  "totalEtapas": 5,
+  "titulo": "Sobre você",
+  "subtitulo": "Agora um pouco sobre você. Tudo o que você responde aqui fica entre você e esta tela.",
+  "perguntas": [
+    {
+      "id": "P13",
+      "numero": "13",
+      "texto": "O(A) agressor(a) já usou, ameaçou usar arma de fogo contra você ou tem fácil acesso a uma arma?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim, usou" },
+        { "texto": "Sim, ameaçou usar" },
+        { "texto": "Tem fácil acesso" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P14",
+      "numero": "14",
+      "texto": "O(A) agressor(a) já ameaçou ou agrediu seus filhos, outros familiares, amigos, colegas de trabalho, pessoas desconhecidas ou animais?",
+      "textoApoio": "Você pode marcar mais de uma opção.",
+      "modo": "multipla",
+      "criteriosAlimentados": ["historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim, filhos" },
+        { "texto": "Sim, outros familiares" },
+        { "texto": "Sim, amigos" },
+        { "texto": "Sim, colegas de trabalho" },
+        { "texto": "Sim, outras pessoas" },
+        { "texto": "Sim, animais" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P15",
+      "numero": "15",
+      "texto": "Você se separou recentemente do(a) agressor(a), tentou ou manifestou intenção de se separar?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P16a",
+      "numero": "16.a",
+      "texto": "Você tem filhos?",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade"],
+      "opcoes": [
+        { "texto": "Sim, com o(a) agressor(a)" },
+        { "texto": "Sim, de outro relacionamento" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P16b",
+      "numero": "16.b",
+      "texto": "Qual a faixa etária de seus filhos? (Se tiver mais de um filho, pode assinalar mais de uma opção)",
+      "textoApoio": "Esta informação ajuda a rede de apoio a planejar acolhimento, se for o caso. Pule se preferir.",
+      "modo": "multipla",
+      "criteriosAlimentados": [],
+      "opcoes": [
+        { "texto": "0 a 11 anos" },
+        { "texto": "12 a 17 anos" },
+        { "texto": "A partir de 18 anos" }
+      ]
+    },
+    {
+      "id": "P16c",
+      "numero": "16.c",
+      "texto": "Algum de seus filhos é pessoa com deficiência?",
+      "modo": "unica",
+      "criteriosAlimentados": [],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    }
+  ]
+}

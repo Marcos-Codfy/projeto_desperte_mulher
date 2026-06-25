@@ -1,0 +1,112 @@
+{
+  "etapa": 2,
+  "totalEtapas": 5,
+  "titulo": "Mais sobre o(a) agressor(a)",
+  "subtitulo": "Estes pontos ajudam a entender o padrão de comportamento da pessoa que te agride.",
+  "perguntas": [
+    {
+      "id": "P6",
+      "numero": "6",
+      "texto": "O(A) agressor(a) já teve algum destes comportamentos?",
+      "textoApoio": "Marque todos que reconhecer. Não precisa caber em uma só.",
+      "modo": "multipla",
+      "criteriosAlimentados": ["motivacao", "historico"],
+      "opcoes": [
+        { "texto": "Disse algo parecido com a frase: \"se não for minha, não será de mais ninguém\"" },
+        { "texto": "Perturbou, perseguiu ou vigiou você nos locais que frequenta" },
+        { "texto": "Proibiu você de visitar familiares ou amigos" },
+        { "texto": "Proibiu você de trabalhar ou estudar" },
+        { "texto": "Fez telefonemas, enviou mensagens pelo celular ou e-mails de forma insistente" },
+        { "texto": "Impediu você de ter acesso a dinheiro, conta bancária ou outros bens (como documentos pessoais, carro)" },
+        { "texto": "Teve outros comportamentos de ciúme excessivo e de controle sobre você" },
+        { "texto": "Nenhum dos comportamentos acima listados", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P7a",
+      "numero": "7.a",
+      "texto": "Você já registrou ocorrência policial ou formulou pedido de medida protetiva de urgência envolvendo esse(a) mesmo(a) agressor(a)?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P7b",
+      "numero": "7.b",
+      "texto": "O(A) agressor(a) já descumpriu medida protetiva anteriormente?",
+      "modo": "unica",
+      "criteriosAlimentados": ["historico"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P8",
+      "numero": "8",
+      "texto": "As agressões ou ameaças do(a) agressor(a) contra você se tornaram mais frequentes ou mais graves nos últimos meses?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P9",
+      "numero": "9",
+      "texto": "O(A) agressor(a) faz uso abusivo de álcool ou de drogas ou medicamentos?",
+      "modo": "unica",
+      "criteriosAlimentados": ["motivacao", "historico"],
+      "opcoes": [
+        { "texto": "Sim, de álcool" },
+        { "texto": "Sim, de drogas" },
+        { "texto": "Sim, de medicamentos" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P10",
+      "numero": "10",
+      "texto": "O(A) agressor(a) tem alguma doença mental comprovada por avaliação médica?",
+      "modo": "unica",
+      "criteriosAlimentados": ["motivacao"],
+      "opcoes": [
+        { "texto": "Sim e faz uso de medicação" },
+        { "texto": "Sim e não faz uso de medicação" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P11",
+      "numero": "11",
+      "texto": "O(A) agressor(a) já tentou suicídio ou falou em suicidar-se?",
+      "modo": "unica",
+      "criteriosAlimentados": ["motivacao", "historico"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P12",
+      "numero": "12",
+      "texto": "O(A) agressor(a) está com dificuldades financeiras, está desempregado ou tem dificuldade de se manter no emprego?",
+      "modo": "unica",
+      "criteriosAlimentados": ["motivacao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    }
+  ]
+}

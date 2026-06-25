@@ -1,0 +1,64 @@
+{
+  "etapa": 4,
+  "totalEtapas": 5,
+  "titulo": "Família e relacionamento",
+  "subtitulo": "Sobre dinâmicas familiares que podem influenciar sua segurança.",
+  "perguntas": [
+    {
+      "id": "P17",
+      "numero": "17",
+      "texto": "Estão vivendo algum conflito com relação à guarda dos filhos, visitas ou pagamento de pensão pelo agressor?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true },
+        { "texto": "Não sei", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P18",
+      "numero": "18",
+      "texto": "Seu(s) filho(s) já presenciaram ato(s) de violência do(a) agressor(a) contra você?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P19",
+      "numero": "19",
+      "texto": "Você sofreu algum tipo de violência durante a gravidez ou nos três meses posteriores ao parto?",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade", "casuistica", "motivacao"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P20",
+      "numero": "20",
+      "texto": "Você está grávida ou teve bebê nos últimos 18 meses?",
+      "modo": "unica",
+      "criteriosAlimentados": ["atratibilidade"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    },
+    {
+      "id": "P21",
+      "numero": "21",
+      "texto": "Se você está em um novo relacionamento, as ameaças ou as agressões físicas aumentaram em razão disso?",
+      "modo": "unica",
+      "criteriosAlimentados": ["exposicao", "casuistica", "motivacao", "historico", "tendencia"],
+      "opcoes": [
+        { "texto": "Sim" },
+        { "texto": "Não", "ehNegativa": true }
+      ]
+    }
+  ]
+}
