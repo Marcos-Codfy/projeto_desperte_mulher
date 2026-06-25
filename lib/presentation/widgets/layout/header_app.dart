@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:desperte_mulher/common/app_assets.dart';
 import 'package:desperte_mulher/common/app_dimensions.dart';
 import 'package:desperte_mulher/common/app_routes.dart';
 import 'package:desperte_mulher/common/app_strings.dart';
@@ -37,19 +38,12 @@ class HeaderApp extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: const BoxDecoration(
-                        color: AppCores.primaria,
-                        shape: BoxShape.circle,
-                      ),
-                      alignment: Alignment.center,
-                      child: const Icon(
-                        Icons.spa_outlined,
-                        size: 18,
-                        color: Colors.white,
-                      ),
+                    Image.asset(
+                      AppAssets.logoApp,
+                      width: 36,
+                      height: 36,
+                      filterQuality: FilterQuality.medium,
+                      semanticLabel: AppStrings.nomeProduto,
                     ),
                     const SizedBox(width: AppDimensoes.e12),
                     Flexible(

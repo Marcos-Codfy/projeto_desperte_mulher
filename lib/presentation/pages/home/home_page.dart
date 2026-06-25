@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:desperte_mulher/common/app_assets.dart';
 import 'package:desperte_mulher/common/app_dimensions.dart';
 import 'package:desperte_mulher/common/app_routes.dart';
 import 'package:desperte_mulher/common/app_strings.dart';
@@ -118,10 +119,11 @@ class _Hero extends StatelessWidget {
                 borderRadius: BorderRadius.circular(AppDimensoes.raioGrande),
               ),
               alignment: Alignment.center,
-              child: const Icon(
-                Icons.spa_outlined,
-                size: 96,
-                color: AppCores.primaria,
+              padding: const EdgeInsets.all(AppDimensoes.e32),
+              child: Image.asset(
+                AppAssets.logoApp,
+                filterQuality: FilterQuality.medium,
+                semanticLabel: AppStrings.nomeProduto,
               ),
             ),
           ),

@@ -12,9 +12,8 @@ class AppAssets {
   static const String _parceiros = '$_imgs/parceiros';
   static const String _ilustracoes = '$_imgs/ilustracoes';
 
-  // ── Logos institucionais (PENDENTE: Davi enviar PNGs) ─────────────────
-  // Por enquanto cada constante aponta para um placeholder; quando os
-  // arquivos reais chegarem, basta dropar no caminho indicado.
+  // ── Logos institucionais ──────────────────────────────────────────────
+  // Os PNG/JPG reais vivem em assets/images/parceiros/.
   static const String logoCnj = '$_parceiros/cnj.png';
   static const String logoCnmp = '$_parceiros/cnmp.png';
   static const String logoCatolica = '$_parceiros/logocatolica.png';
@@ -26,7 +25,8 @@ class AppAssets {
   static const String logoPmTo = '$_parceiros/pmto.png';
   static const String logoDelegaciaVirtual =
       '$_parceiros/delegaciavirtual.png';
-  static const String logoCasaMulher = '$_parceiros/casadamulherbrasileira.png';
+  // Nome do arquivo exatamente como entregue pelo Davi.
+  static const String logoCasaMulher = '$_parceiros/casamulherbrasileira.png';
   static const String logoNudem = '$_parceiros/nudem.jpg';
   static const String logoOabTo = '$_parceiros/oabto.jpeg';
   static const String logo180 = '$_parceiros/180.jpeg';

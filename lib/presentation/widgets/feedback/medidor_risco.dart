@@ -59,12 +59,11 @@ class MedidorRisco extends StatelessWidget {
     final percent = percentualPreenchido.clamp(0.0, 1.0);
 
     return Container(
-      color: AppCores.fundoCard,
       padding: const EdgeInsets.symmetric(
         horizontal: AppDimensoes.e16,
         vertical: AppDimensoes.e12,
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppCores.fundoCard,
         border: Border(
           top: BorderSide(color: AppCores.divisor, width: 1),
