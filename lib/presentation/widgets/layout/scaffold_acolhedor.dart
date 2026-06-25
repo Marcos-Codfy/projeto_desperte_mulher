@@ -12,6 +12,7 @@ import 'package:desperte_mulher/common/app_theme.dart';
 import 'package:desperte_mulher/presentation/widgets/layout/footer_app.dart';
 import 'package:desperte_mulher/presentation/widgets/layout/header_app.dart';
 import 'package:desperte_mulher/presentation/widgets/seguranca/confirmacao_saida_modal.dart';
+import 'package:desperte_mulher/web/browser_helpers.dart' as web;
 
 /// Callback chamado quando a usuária confirma a saída rápida.
 /// Na Fase 6, isso vai apontar para `sairRapido()` do helper web.
@@ -38,18 +39,13 @@ class ScaffoldAcolhedor extends StatelessWidget {
     super.key,
     required this.conteudo,
     this.rodapeFixo,
-    this.aoSair = _saidaPlaceholder,
+    this.aoSair = web.sairRapido,
     this.limitarLarguraConteudo = true,
     this.padding = const EdgeInsets.symmetric(
       horizontal: AppDimensoes.e16,
       vertical: AppDimensoes.e24,
     ),
   });
-
-  static void _saidaPlaceholder() {
-    // Implementação real entra na Fase 6.
-    debugPrint('[SaídaRápida] placeholder — implementação real na Fase 6');
-  }
 
   @override
   Widget build(BuildContext context) {

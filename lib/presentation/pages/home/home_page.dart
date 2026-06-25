@@ -10,10 +10,32 @@ import 'package:desperte_mulher/common/app_theme.dart';
 import 'package:desperte_mulher/presentation/widgets/botoes/botao_primario.dart';
 import 'package:desperte_mulher/presentation/widgets/feedback/badge_seguranca.dart';
 import 'package:desperte_mulher/presentation/widgets/layout/scaffold_acolhedor.dart';
+import 'package:desperte_mulher/presentation/widgets/seguranca/aviso_historico_modal.dart';
 import 'package:desperte_mulher/presentation/widgets/textos/textos.dart';
 
-class HomePage extends StatelessWidget {
+/// Flag em memória: garante que o AvisoHistoricoModal apareça só uma vez
+/// por sessão. Não pode ir pra localStorage (regra de sigilo da vítima).
+bool _avisoHistoricoMostradoNestaSessao = false;
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    if (!_avisoHistoricoMostradoNestaSessao) {
+      _avisoHistoricoMostradoNestaSessao = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        mostrarAvisoHistoricoModal(context);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
