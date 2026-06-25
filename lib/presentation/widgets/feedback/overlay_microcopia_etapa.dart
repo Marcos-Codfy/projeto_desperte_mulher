@@ -35,7 +35,12 @@ class OverlayMicrocopiaEtapa extends StatefulWidget {
     super.key,
     required this.texto,
     required this.aoFechar,
-    this.duracao = const Duration(seconds: 2),
+    // 6 segundos = tempo de ler a frase (~3.5s) + uma respiração
+    // consciente (~2-3s). Literatura de "trauma-informed UI" sugere
+    // a faixa 4–8s para populações em crise — abaixo de 4s o texto
+    // ainda está sendo lido quando o overlay some; acima de 8s vira
+    // interrupção. Toque para dispensar antes está sempre disponível.
+    this.duracao = const Duration(seconds: 6),
   });
 
   @override
@@ -90,21 +95,29 @@ class _OverlayMicrocopiaEtapaState extends State<OverlayMicrocopiaEtapa>
         onTap: _fechar,
         child: FadeTransition(
           opacity: _opacity,
-          child: Container(
-            // Veil acolhedor: o fundo da app com leve transparência;
-            // NÃO usamos preto / branco — manter a paleta da plataforma.
-            color: AppCores.fundo.withValues(alpha: 0.96),
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(horizontal: AppDimensoes.e32),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 520),
-              child: Text(
-                widget.texto,
-                textAlign: TextAlign.center,
-                style: AppTipografia.tituloH2.copyWith(
-                  color: AppCores.primariaEscura,
-                  fontStyle: FontStyle.italic,
-                  height: 1.5,
+          // Material transparente como ancestor do Text é o que evita
+          // o sublinhado amarelo de debug do Flutter ("missing Material
+          // ancestor"). O Container colorido abaixo continua dando a
+          // cor do veil; o Material só fornece o contexto necessário
+          // para o Text não cair no fallback decorativo.
+          child: Material(
+            color: Colors.transparent,
+            child: Container(
+              // Veil acolhedor: o fundo da app com leve transparência;
+              // NÃO usamos preto / branco — manter a paleta da plataforma.
+              color: AppCores.fundo.withValues(alpha: 0.96),
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: AppDimensoes.e32),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 520),
+                child: Text(
+                  widget.texto,
+                  textAlign: TextAlign.center,
+                  style: AppTipografia.tituloH2.copyWith(
+                    color: AppCores.primariaEscura,
+                    fontStyle: FontStyle.italic,
+                    height: 1.5,
+                  ),
                 ),
               ),
             ),
