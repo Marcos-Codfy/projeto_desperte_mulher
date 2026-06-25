@@ -32,14 +32,20 @@ Future<bool?> mostrarConfirmacaoSaidaModal(BuildContext context) {
               const SizedBox(height: AppDimensoes.e16),
               const Paragrafo(AppStrings.modalSaidaTexto),
               const SizedBox(height: AppDimensoes.e24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              // Wrap em vez de Row: em mobile estreito (≤ ~370px), os
+              // dois botões não cabem lado-a-lado sem overflow. O Wrap
+              // quebra automaticamente para coluna nesse caso — com a
+              // ordem visual mantida (Cancelar em cima, Sim, sair agora
+              // embaixo, primário continua sendo a ação mais acessível).
+              Wrap(
+                alignment: WrapAlignment.end,
+                spacing: AppDimensoes.e12,
+                runSpacing: AppDimensoes.e12,
                 children: [
                   BotaoSecundario(
                     texto: AppStrings.modalSaidaCancelar,
                     aoPressionar: () => Navigator.of(ctx).pop(false),
                   ),
-                  const SizedBox(width: AppDimensoes.e12),
                   BotaoPrimario(
                     texto: AppStrings.modalSaidaConfirmar,
                     icone: Icons.exit_to_app,

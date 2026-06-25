@@ -98,22 +98,34 @@ class ScaffoldAcolhedor extends StatelessWidget {
           },
           child: Focus(
             autofocus: true,
-            child: Column(
-              children: [
-                HeaderApp(aoConfirmarSaida: aoSair),
-                Expanded(
-                  child: SingleChildScrollView(
-                    controller: scrollController,
-                    child: Column(
-                      children: [
-                        conteudoLimitado,
-                        if (mostrarFooter) const FooterApp(),
-                      ],
+            // SafeArea cobre o status bar do dispositivo móvel — sem
+            // ele, o relógio/wifi/bateria do sistema operacional
+            // ficam sobrepostos ao HeaderApp em telas edge-to-edge
+            // (Android com gesto, iOS com notch). bottom: false
+            // porque o rodapé fixo (BarraNavegacaoEtapa) já cuida
+            // do seu próprio SafeArea inferior.
+            child: SafeArea(
+              top: true,
+              bottom: false,
+              left: false,
+              right: false,
+              child: Column(
+                children: [
+                  HeaderApp(aoConfirmarSaida: aoSair),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      controller: scrollController,
+                      child: Column(
+                        children: [
+                          conteudoLimitado,
+                          if (mostrarFooter) const FooterApp(),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                ?rodapeFixo,
-              ],
+                  ?rodapeFixo,
+                ],
+              ),
             ),
           ),
         ),

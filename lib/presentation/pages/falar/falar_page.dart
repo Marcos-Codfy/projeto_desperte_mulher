@@ -58,11 +58,6 @@ class FalarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final largura = MediaQuery.sizeOf(context).width;
-    final cardsPorLinha = largura >= AppDimensoes.breakpointDesktop
-        ? 3
-        : (largura >= AppDimensoes.breakpointTablet ? 2 : 1);
-
     return ScaffoldAcolhedor(
       conteudo: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,24 +77,37 @@ class FalarPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDimensoes.e32),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: cardsPorLinha,
-              crossAxisSpacing: AppDimensoes.e16,
-              mainAxisSpacing: AppDimensoes.e16,
-              childAspectRatio: 1.1,
-            ),
-            itemCount: _canais.length,
-            itemBuilder: (_, i) {
-              final c = _canais[i];
-              return CardApoiador(
-                nome: c.$1,
-                descricao: c.$2,
-                telefoneAcao: c.$3,
-                caminhoLogo: c.$4,
-                aoTocar: c.$3 != null ? () => ligarPara(c.$3!) : null,
+          // Wrap em vez de GridView com aspect ratio fixo: o card
+          // refinado (selo + corpo + CTA) tem altura variável conforme
+          // o tamanho da descrição. Wrap respeita altura natural e
+          // quebra colunas conforme a largura disponível.
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final largura = constraints.maxWidth;
+              final cardsPorLinha = largura >= AppDimensoes.breakpointDesktop
+                  ? 3
+                  : (largura >= AppDimensoes.breakpointTablet ? 2 : 1);
+              const espacamento = AppDimensoes.e16;
+              final larguraCard =
+                  (largura - espacamento * (cardsPorLinha - 1)) /
+                      cardsPorLinha;
+              return Wrap(
+                spacing: espacamento,
+                runSpacing: espacamento,
+                children: [
+                  for (final c in _canais)
+                    SizedBox(
+                      width: larguraCard,
+                      child: CardApoiador(
+                        nome: c.$1,
+                        descricao: c.$2,
+                        telefoneAcao: c.$3,
+                        caminhoLogo: c.$4,
+                        aoTocar:
+                            c.$3 != null ? () => ligarPara(c.$3!) : null,
+                      ),
+                    ),
+                ],
               );
             },
           ),
