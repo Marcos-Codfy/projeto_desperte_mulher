@@ -57,6 +57,7 @@ class PerguntaMapper {
       modo: _modoFromString(dto.modo),
       criteriosAlimentados: criterios,
       opcoes: dto.opcoes.map(opcaoFromDto).toList(growable: false),
+      sensivel: dto.sensivel,
     );
   }
 

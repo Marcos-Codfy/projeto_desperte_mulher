@@ -76,6 +76,8 @@ Você não precisa responder tudo de uma vez. Não há prazos. Não há julgamen
   static const String avaliacaoCarregando = 'Carregando…';
   static const String avaliacaoEtapaLabel = 'Etapa';
   static const String avaliacaoDe = 'de';
+  static const String avaliacaoFaltam = 'faltam';
+  static const String avaliacaoMinAbreviado = 'min';
   static const String avaliacaoVoltar = 'Voltar';
   static const String avaliacaoProximo = 'Próximo';
   static const String avaliacaoVerResultado = 'Ver resultado';
@@ -83,8 +85,26 @@ Você não precisa responder tudo de uma vez. Não há prazos. Não há julgamen
       'Você está construindo seu mapa de segurança.';
   static const String avaliacaoErroFaltam =
       'Quando estiver pronta, escolha uma opção para continuar.';
-  static const String avaliacaoEntreEtapas =
-      'Você está indo bem. Se precisar pausar, é só fechar a página.';
+
+  /// Frase mostrada acima do MedidorRisco, no rodapé fixo.
+  /// Sutil — não competir com o medidor.
+  static const String avaliacaoEntreEtapasSutil =
+      'Sem pressa. Você decide o ritmo.';
+
+  // ── Overlay entre etapas (microcopia de pausa) ────────────────────────
+  //
+  // Aparece por ~2s ao trocar de etapa. Tom de amiga, nada imperativo —
+  // sempre devolvendo o controle pra ela. Aprovado em conversa.
+  static const String microcopiaEntreEtapas1para2 =
+      'Você acabou de falar sobre coisas difíceis. Se quiser uma pausa, '
+      'ela está aqui. Quando você decidir seguir, eu te acompanho.';
+  static const String microcopiaEntreEtapas2para3 =
+      'A gente está no meio do caminho. Você está fazendo isso no seu '
+      'tempo — e isso importa.';
+  static const String microcopiaEntreEtapas3para4 =
+      'Faltam só duas. Se precisar de um respiro, ele cabe aqui. Sem pressa.';
+  static const String microcopiaEntreEtapas4para5 =
+      'Última parte. Você chegou até aqui — isso já vale muito.';
 
   // ── Resultado ─────────────────────────────────────────────────────────
   static const String resultadoTitulo = 'Você concluiu sua avaliação.';

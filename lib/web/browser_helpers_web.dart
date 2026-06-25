@@ -31,9 +31,19 @@ void sairRapido() {
 }
 
 /// Abre um número de telefone como deeplink (`tel:`).
+///
+/// IMPORTANTE: usa `window.open(..., '_self')` em vez de
+/// `location.replace`. O `replace` foi desenhado para URLs http(s) e
+/// se comporta de forma indefinida com schemes especiais como `tel:`
+/// — em alguns navegadores mobile chama o discador, em outros (Edge
+/// mobile, Safari iOS) trava a página em estado inválido.
+///
+/// `window.open(tel:..., '_self')` é o equivalente programático de
+/// clicar num `<a href="tel:...">` — comportamento padronizado em
+/// todos os navegadores que suportam o scheme.
 void ligarPara(String numero) {
   final limpo = numero.replaceAll(RegExp(r'[^\d+]'), '');
-  _locationReplace('tel:$limpo');
+  _windowOpen('tel:$limpo', '_self');
 }
 
 /// Abre uma URL externa em nova aba.
