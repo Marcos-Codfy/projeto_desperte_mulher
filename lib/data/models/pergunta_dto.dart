@@ -17,6 +17,10 @@ class PerguntaDto {
 
   final List<OpcaoDto> opcoes;
 
+  /// Marca a pergunta como sensível (cuidado visual extra na UI).
+  /// Opcional no JSON; default false.
+  final bool sensivel;
+
   const PerguntaDto({
     required this.id,
     required this.numero,
@@ -25,6 +29,7 @@ class PerguntaDto {
     required this.criteriosAlimentados,
     required this.opcoes,
     this.textoApoio,
+    this.sensivel = false,
   });
 
   factory PerguntaDto.fromJson(Map<String, dynamic> json) {
@@ -40,6 +45,7 @@ class PerguntaDto {
       opcoes: (json['opcoes'] as List<dynamic>)
           .map((e) => OpcaoDto.fromJson(e as Map<String, dynamic>))
           .toList(),
+      sensivel: (json['sensivel'] as bool?) ?? false,
     );
   }
 }

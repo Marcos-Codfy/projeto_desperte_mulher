@@ -22,7 +22,8 @@ class ScaffoldAcolhedor extends StatelessWidget {
   /// Conteúdo principal da página (acima do footer, abaixo do header).
   final Widget conteudo;
 
-  /// Widget fixo no rodapé acima do footer (ex: medidor de risco).
+  /// Widget fixo no rodapé acima do footer (ex: medidor de risco
+  /// + bottom bar de navegação).
   final Widget? rodapeFixo;
 
   /// Callback de saída rápida. Default: imprime no console; será
@@ -35,6 +36,18 @@ class ScaffoldAcolhedor extends StatelessWidget {
   /// Padding extra ao redor do conteúdo.
   final EdgeInsetsGeometry padding;
 
+  /// Controller opcional do scroll externo da página.
+  ///
+  /// Quando informado, o ScaffoldAcolhedor vincula seu SingleChildScrollView
+  /// a este controller — útil para a página resetar o scroll programaticamente
+  /// (ex.: ao trocar de etapa na Avaliação). Quando null, o scroll é livre.
+  final ScrollController? scrollController;
+
+  /// Se o footer deve ser exibido. Em telas onde queremos o conteúdo
+  /// preencher a viewport (ex.: Avaliação com bottom bar fixa), esconder
+  /// o footer evita scroll inútil e melhora o foco.
+  final bool mostrarFooter;
+
   const ScaffoldAcolhedor({
     super.key,
     required this.conteudo,
@@ -45,6 +58,8 @@ class ScaffoldAcolhedor extends StatelessWidget {
       horizontal: AppDimensoes.e16,
       vertical: AppDimensoes.e24,
     ),
+    this.scrollController,
+    this.mostrarFooter = true,
   });
 
   @override
@@ -88,10 +103,11 @@ class ScaffoldAcolhedor extends StatelessWidget {
                 HeaderApp(aoConfirmarSaida: aoSair),
                 Expanded(
                   child: SingleChildScrollView(
+                    controller: scrollController,
                     child: Column(
                       children: [
                         conteudoLimitado,
-                        const FooterApp(),
+                        if (mostrarFooter) const FooterApp(),
                       ],
                     ),
                   ),

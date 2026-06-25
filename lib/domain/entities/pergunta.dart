@@ -43,6 +43,14 @@ class Pergunta {
   /// resposta for "Sim", todos os 5 contadores ganham 1.
   final Set<CriterioArpax> criteriosAlimentados;
 
+  /// Sinaliza que a pergunta carrega peso emocional alto e merece
+  /// cuidado visual extra na UI (borda mais grossa, padding maior,
+  /// texto de apoio em destaque).
+  ///
+  /// Não muda nada no cálculo — é puramente uma marca para o presenter.
+  /// Exemplo: P4 (relações sexuais forçadas).
+  final bool sensivel;
+
   const Pergunta({
     required this.id,
     required this.numero,
@@ -51,5 +59,6 @@ class Pergunta {
     required this.opcoes,
     required this.criteriosAlimentados,
     this.textoApoio,
+    this.sensivel = false,
   });
 }

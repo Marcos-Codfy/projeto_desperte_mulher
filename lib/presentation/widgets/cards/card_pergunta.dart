@@ -51,12 +51,28 @@ class CardPergunta extends StatelessWidget {
   Color get _corBorda {
     if (mostrarErro) return AppCores.erro;
     if (_respondida) return AppCores.terciaria;
+    // Perguntas sensíveis sempre nascem com lavanda discreta, mesmo
+    // antes de respondidas — sinaliza que aquele card pede atenção.
+    if (pergunta.sensivel) return AppCores.primariaClara;
     return AppCores.divisor;
+  }
+
+  double get _larguraBorda {
+    if (_respondida || mostrarErro) return 2;
+    if (pergunta.sensivel) return 2;
+    return 1;
   }
 
   Color get _corFundo {
     if (mostrarErro) return AppCores.erroFundo;
+    // Sensível recebe lavanda translúcida — diferencia sem chocar.
+    if (pergunta.sensivel) return AppCores.primariaFundo;
     return AppCores.fundoCard;
+  }
+
+  double get _padding {
+    // Mais ar para respirar nas sensíveis (≥20px de padding em vez de 16).
+    return pergunta.sensivel ? AppDimensoes.e24 : AppDimensoes.e16;
   }
 
   void _toggle(int idx) {
@@ -78,10 +94,10 @@ class CardPergunta extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: _corFundo,
-        border: Border.all(color: _corBorda, width: _respondida || mostrarErro ? 2 : 1),
+        border: Border.all(color: _corBorda, width: _larguraBorda),
         borderRadius: BorderRadius.circular(AppDimensoes.raioMedio),
       ),
-      padding: const EdgeInsets.all(AppDimensoes.e16),
+      padding: EdgeInsets.all(_padding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

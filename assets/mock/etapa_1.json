@@ -58,7 +58,8 @@
       "id": "P4",
       "numero": "4",
       "texto": "O(A) agressor(a) já obrigou você a ter relações sexuais ou praticar atos sexuais contra a sua vontade?",
-      "textoApoio": "Sabemos que esta é uma pergunta difícil. Você responde no seu tempo, sem julgamento.",
+      "textoApoio": "Essa é uma das perguntas mais difíceis daqui. Você responde no seu tempo — e tudo bem se quiser respirar fundo antes. Não há nada que você precise explicar para ninguém.",
+      "sensivel": true,
       "modo": "unica",
       "criteriosAlimentados": ["exposicao", "casuistica", "historico"],
       "opcoes": [
