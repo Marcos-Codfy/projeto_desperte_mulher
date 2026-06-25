@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!--
+    Privacidade: pedimos ao navegador que NÃO cacheie nada, e que NÃO envie
+    referrer em links externos. Isso reduz o rastro digital deixado pelo
+    acesso à plataforma — proteção direta à usuária.
+  -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, private">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="referrer" content="no-referrer">
+
+  <meta name="description" content="Site informativo">
+
+  <!-- iOS meta tags & icons (intencionalmente genéricos) -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Site">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <!-- Título neutro: NÃO denuncia o site em abas/históricos compartilhados. -->
+  <title>Site</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!--
+    Configura o Flutter Web para usar o renderer HTML em vez de CanvasKit.
+    Motivo: HTML renderer permite DOM real (acessibilidade WCAG funciona,
+    leitores de tela enxergam, VLibras pode ser plugado, Google indexa).
+    CanvasKit desenha tudo num <canvas> e quebraria esses recursos.
+  -->
+  <script>
+    window.flutterConfiguration = {
+      renderer: "html"
+    };
+  </script>
+
+  <!--
+    Slot preparado para VLibras (NÃO ATIVAR no MVP — sem aval do Davi/Silvano).
+    Quando aprovado, remover os comentários abaixo:
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  -->
+
+  <style>
+    /* Impede impressão acidental do questionário em andamento.
+       Princípio: agressor não deve encontrar uma cópia impressa. */
+    @media print {
+      body { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

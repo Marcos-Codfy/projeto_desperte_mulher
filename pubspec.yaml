@@ -1,0 +1,42 @@
+name: desperte_mulher
+description: "Plataforma de autoavaliação de risco de violência doméstica baseada na metodologia AR PAX."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/mock/
+    - assets/images/
+    - assets/images/parceiros/
+    - assets/images/ilustracoes/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lato-Italic.ttf
+          style: italic
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+        - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/PlayfairDisplay-Italic.ttf
+          style: italic
