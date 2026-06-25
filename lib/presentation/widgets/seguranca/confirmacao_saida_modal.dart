@@ -32,26 +32,52 @@ Future<bool?> mostrarConfirmacaoSaidaModal(BuildContext context) {
               const SizedBox(height: AppDimensoes.e16),
               const Paragrafo(AppStrings.modalSaidaTexto),
               const SizedBox(height: AppDimensoes.e24),
-              // Wrap em vez de Row: em mobile estreito (≤ ~370px), os
-              // dois botões não cabem lado-a-lado sem overflow. O Wrap
-              // quebra automaticamente para coluna nesse caso — com a
-              // ordem visual mantida (Cancelar em cima, Sim, sair agora
-              // embaixo, primário continua sendo a ação mais acessível).
-              Wrap(
-                alignment: WrapAlignment.end,
-                spacing: AppDimensoes.e12,
-                runSpacing: AppDimensoes.e12,
-                children: [
-                  BotaoSecundario(
+              // Layout adaptativo dos botões:
+              //   • Em mobile estreito (modal < 380px): empilhamos em
+              //     COLUNA com largura cheia. Secundária acima,
+              //     primária abaixo (mais perto do polegar). Padrão
+              //     usado por WhatsApp/Telegram/iOS sheets — mais
+              //     limpo que dois botões soltos alinhados à direita.
+              //   • Em desktop (≥ 380px): lado-a-lado à direita,
+              //     primária à direita (padrão Material).
+              //
+              // O LayoutBuilder vê a largura do modal, não da tela —
+              // num celular de 360 px o modal real tem ~280 px depois
+              // da margem do Dialog.
+              LayoutBuilder(
+                builder: (ctx2, constraints) {
+                  final empilhar = constraints.maxWidth < 380;
+
+                  final botaoCancelar = BotaoSecundario(
                     texto: AppStrings.modalSaidaCancelar,
                     aoPressionar: () => Navigator.of(ctx).pop(false),
-                  ),
-                  BotaoPrimario(
+                    largura100: empilhar,
+                  );
+                  final botaoConfirmar = BotaoPrimario(
                     texto: AppStrings.modalSaidaConfirmar,
                     icone: Icons.exit_to_app,
                     aoPressionar: () => Navigator.of(ctx).pop(true),
-                  ),
-                ],
+                    largura100: empilhar,
+                  );
+
+                  if (empilhar) {
+                    return Column(
+                      children: [
+                        botaoCancelar,
+                        const SizedBox(height: AppDimensoes.e12),
+                        botaoConfirmar,
+                      ],
+                    );
+                  }
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      botaoCancelar,
+                      const SizedBox(width: AppDimensoes.e12),
+                      botaoConfirmar,
+                    ],
+                  );
+                },
               ),
             ],
           ),
